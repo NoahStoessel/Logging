@@ -1,4 +1,4 @@
-# Odyn AI Logging Library
+# Logging Library
 
 
 ## Basic Functions
