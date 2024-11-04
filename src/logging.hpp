@@ -1,6 +1,7 @@
 #include <chrono>
 #include <fstream>
 #include <iostream>
+#include <ostream>
 
 namespace Log {
 bool log_to_file = false;
@@ -85,5 +86,34 @@ inline void panic(std::string message)
         log_file << timestamp() << " [PANIC] " << message << std::endl;
         log_file.close();
     }
+}
+
+inline void test(std::string test_title, bool test_result){
+	if(test_result == false){
+
+		std::cout << "\e[0;31m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+
+		 if (logfile == "") {
+            logfile = "log.log";
+        }
+        std::ofstream log_file;
+        log_file.open(logfile, std::ios_base::app);
+        log_file << "\e[0;31m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+        log_file.close();
+
+	}else{
+			std::cout << "\e[0;32m" << "[TEST] " << test_title << "Suceeded!" << "\e[0m" << std::endl;
+
+		 if (logfile == "") {
+            logfile = "log.log";
+        }
+        std::ofstream log_file;
+        log_file.open(logfile, std::ios_base::app);
+        log_file << "\e[0;32m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+        log_file.close();
+
+
+	}
+	
 }
 }
