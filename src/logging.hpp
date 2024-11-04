@@ -91,25 +91,25 @@ inline void panic(std::string message)
 inline void test(std::string test_title, bool test_result){
 	if(test_result == false){
 
-		std::cout << "\e[0;31m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+		std::cout << "\e[0;31m" << "[TEST] " << test_title << " Failed!" << "\e[0m" << std::endl;
 
 		 if (logfile == "") {
             logfile = "log.log";
         }
         std::ofstream log_file;
         log_file.open(logfile, std::ios_base::app);
-        log_file << "\e[0;31m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+        log_file << "\e[0;31m" << "[TEST] " << test_title << " Failed!" << "\e[0m" << std::endl;
         log_file.close();
 
 	}else{
-			std::cout << "\e[0;32m" << "[TEST] " << test_title << "Suceeded!" << "\e[0m" << std::endl;
+			std::cout << "\e[0;32m" << "[TEST] " << test_title << " Suceeded!" << "\e[0m" << std::endl;
 
 		 if (logfile == "") {
             logfile = "log.log";
         }
         std::ofstream log_file;
         log_file.open(logfile, std::ios_base::app);
-        log_file << "\e[0;32m" << "[TEST] " << test_title << "Failed!" << "\e[0m" << std::endl;
+        log_file << "\e[0;32m" << "[TEST] " << test_title << " Suceeded!" << "\e[0m" << std::endl;
         log_file.close();
 
 
